@@ -1,0 +1,28 @@
+/* main */
+:root {
+    --color_p: #5b6163;
+    --title_color: #212529;
+}
+
+.normal_text,
+p,
+span {
+    color: var(--color_p);
+    font-weight: 400;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+
+}
+
+button,
+nav {
+    font-weight: 900;
+
+}
+
+.title {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--title_color);
+    font-weight: bold;
+    font-size: 2.5rem;
+}
