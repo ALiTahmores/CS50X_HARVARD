@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: I know it takes a long time to apply Bubble Sort on the reverse order
+
+sort2 uses: Merge Sort
+
+How do you know?: When I apply Merge Sort on reverse order it is very fast
+
+sort3 uses: Selection Sort
+
+How do you know?: In all three modes, the average time is between the two previous modes
