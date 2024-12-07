@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block main %}
+    {% if stock %}
+        <table class="table table-light mx-auto w-50">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ stock.price | usd }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            No results found for the given stock symbol.
+        </div>
+    {% endif %}
+{% endblock %}

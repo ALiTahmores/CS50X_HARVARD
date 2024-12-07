@@ -1,0 +1,61 @@
+<!-- Template for displaying transaction history -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<!-- Header for the Transaction History page -->
+    <h1 class="text-center my-4">Transaction History</h1>
+
+<!-- Table to show transaction details -->
+    <table class="table table-bordered table-striped table-hover text-center">
+
+    <!-- Table headers for better structure -->
+        <thead class="thead-dark">
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+
+    <!-- Table body to display each transaction -->
+        <tbody>
+        <!-- Loop through transactions list -->
+            {% for transaction in transactions %}
+                <tr>
+            <!-- Stock symbol of the transaction -->
+                    <td>{{ transaction.symbol }}</td>
+
+            <!-- Number of shares bought or sold -->
+                    <td class="{{ 'text-success' if transaction.shares > 0 else 'text-danger' }}">
+                        {{ transaction.shares }}
+                    </td>
+
+            <!-- Price of each share at the time of transaction -->
+                    <td>{{ transaction.price | usd }}</td>
+
+            <!-- Total value of the transaction -->
+                    <td>
+                        {{ (transaction.shares * transaction.price) | usd }}
+                    </td>
+
+            <!-- Timestamp of when the transaction was made -->
+                    <td>{{ transaction.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<!-- Display a message if no transactions are available -->
+    {% if not transactions %}
+        <div class="alert alert-info text-center" role="alert">
+            No transactions available.
+        </div>
+    {% endif %}
+{% endblock %}

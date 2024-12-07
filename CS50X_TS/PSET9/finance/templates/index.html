@@ -1,0 +1,69 @@
+<!-- 'Homepage' Template for displaying user's portfolio overview -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio Overview
+{% endblock %}
+
+{% block main %}
+<!-- Header for the Portfolio page -->
+    <h1 class="text-center my-4">Portfolio Overview</h1>
+
+<!-- Table to show detailed portfolio information -->
+    <table class="table table-bordered table-hover text-center">
+
+    <!-- Table headers for better structure and visual distinction -->
+        <thead class="thead-light">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+
+    <!-- Table body to display each stock information -->
+        <tbody>
+        <!-- Loop through stocks list and display each stock's details -->
+            {% for stock in stocks %}
+                <tr>
+            <!-- Stock symbol in the portfolio -->
+                    <td>{{ stock.symbol }}</td>
+
+            <!-- Full name of the company -->
+                    <td>{{ stock.name }}</td>
+
+            <!-- Total number of shares owned by the user -->
+                    <td>{{ stock.total_shares }}</td>
+
+            <!-- Current price of the stock formatted as USD -->
+                    <td>{{ stock.price | usd }}</td>
+
+            <!-- Total value of the stock based on the number of shares -->
+                    <td>{{ stock.value | usd }}</td>
+                </tr>
+            {% endfor %}
+
+        <!-- Display user's cash balance -->
+            <tr class="table-info">
+                <td colspan="4" class="fw-bold text-end">Cash</td>
+                <td class="fw-bold">{{ cash | usd }}</td>
+            </tr>
+
+        <!-- Display total value of the entire portfolio -->
+            <tr class="table-success">
+                <td colspan="4" class="fw-bold text-end"><strong>Total Value</strong></td>
+                <td class="fw-bold"><strong>{{ total_value | usd }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+<!-- Display a message if no stocks are owned -->
+    {% if not stocks %}
+        <div class="alert alert-warning text-center" role="alert">
+            No stocks currently in portfolio.
+        </div>
+    {% endif %}
+{% endblock %}

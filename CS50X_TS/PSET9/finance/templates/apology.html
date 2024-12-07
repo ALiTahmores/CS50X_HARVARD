@@ -1,0 +1,21 @@
+<!-- Template that renders an error message -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+<!-- Main section for displaying the apology message -->
+    <div class="text-center" aria-live="polite">
+    <!-- Display the error code in red -->
+        <h1 class="text-danger">{{ top }}</h1>
+    <!-- Display the error message -->
+        <p class="text-muted">{{ bottom }}</p>
+    <!-- Meme image for the apology message -->
+        <img alt="{{ top }}" class="border img-fluid mb-3 mx-auto" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+    <!-- Redirect to homepage with a button -->
+        <a href="/" class="btn btn-primary">Go Back</a>
+    </div>
+{% endblock %}

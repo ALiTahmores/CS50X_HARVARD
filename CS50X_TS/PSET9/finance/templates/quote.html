@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h1>Get a Stock Quote</h1>
+
+<!-- Form for getting the stock quote -->
+    <form action="{{ url_for('quote') }}" method="post">
+        <div class="form-group mb-3">
+            <label for="symbol" class="form-label">Symbol</label>
+            <input class="form-control" name="symbol" type="text" placeholder="Enter stock symbol" id="symbol" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Get Quote</button>
+    </form>
+
+<!-- If quote is present, display the stock information -->
+    {% if quote %}
+        <h2 class="mt-4">{{ quote["name"] }} ({{ quote["symbol"] }})</h2>
+        <p>Price: {{ quote["price"] | usd }}</p>
+    {% endif %}
+
+<!-- If error occurs, display error message -->
+    {% if error %}
+        <div class="alert alert-danger mt-3" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+{% endblock %}

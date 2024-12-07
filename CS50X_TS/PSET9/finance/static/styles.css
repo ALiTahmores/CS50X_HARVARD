@@ -1,0 +1,44 @@
+:root {
+    --brand-blue: #537fbe;
+    --brand-red: #ea433b;
+    --brand-yellow: #f5b82e;
+    --brand-green: #2e944b;
+}
+
+/* Size for brand */
+nav .navbar-brand {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue {
+    color: var(--brand-blue);
+}
+nav .navbar-brand .red {
+    color: var(--brand-red);
+}
+nav .navbar-brand .yellow {
+    color: var(--brand-yellow);
+}
+nav .navbar-brand .green {
+    color: var(--brand-green);
+}
+
+/* Hover effects for brand */
+nav .navbar-brand .blue:hover {
+    color: #3f6a9f;
+    transition: color 0.3s ease;
+}
+nav .navbar-brand .red:hover {
+    color: #d3382a;
+    transition: color 0.3s ease;
+}
+nav .navbar-brand .yellow:hover {
+    color: #e5a62c;
+    transition: color 0.3s ease;
+}
+nav .navbar-brand .green:hover {
+    color: #24733d;
+    transition: color 0.3s ease;
+}
