@@ -1,37 +1,38 @@
-# Movies
+# Trivia
 
 ## Overview
-The **Movies** problem is part of CS50’s Problem Set 7. In this exercise, you will work with a database to manage movies and their associated information, including titles, release years, and genres. The goal of this problem is to build a web application that allows users to search for movies, add new ones, and edit or delete movie information using a relational database.
+The **Trivia** problem is part of CS50’s Problem Set 8. In this exercise, you will build a web application that allows users to play a trivia game, answering questions and receiving feedback on whether their answers are correct. The application uses a database to store trivia questions and answers, and it will allow users to interact with the game through a simple interface.
 
 ---
 
 ## Features
-- **Add Movies**: Users can add new movies to the database.
-- **Edit Movie Information**: Users can update details about existing movies.
-- **Delete Movies**: Users can delete movies from the database.
-- **Search for Movies**: Users can search for movies based on titles, genres, or release years.
+- **Play Game**: Users can start a trivia game and answer a series of multiple-choice questions.
+- **Correct/Incorrect Feedback**: The game provides feedback for each question, indicating whether the user's answer is correct or incorrect.
+- **Score Tracking**: The game keeps track of the player's score and displays it at the end of the game.
+- **Question Pool**: The trivia questions are stored in a database, and the questions are randomly selected for each game session.
 
 ---
 
 ## Database Structure
-The Movies database contains the following table:
+The Trivia database contains the following table:
 
-### **`movies` Table**  
+### **`questions` Table**
 - **Columns**:
-  - `id`: Unique identifier for each movie.
-  - `title`: Title of the movie.
-  - `release_year`: Year the movie was released.
-  - `genre`: Genre of the movie.
-  - `description`: Description or brief summary of the movie.
-  
+  - `id`: Unique identifier for each question.
+  - `question`: The trivia question text.
+  - `answer`: The correct answer to the question.
+  - `choice1`: The first alternative answer choice.
+  - `choice2`: The second alternative answer choice.
+  - `choice3`: The third alternative answer choice.
+
 ---
 
 ## How to Use
 
 ### 1. **Set Up the Environment**
-To begin using this application, you must set up the environment and install the necessary dependencies. The application is built using **Python**, **Flask**, and **SQLite**.
+Before running the application, ensure you have the necessary dependencies installed. The application is built using **Python**, **Flask**, and **SQLite**.
 
-Make sure to create a virtual environment and install the required packages:
+First, create a virtual environment and install the required packages:
 ```bash
 python3 -m venv venv
 source venv/bin/activate  # For macOS/Linux
